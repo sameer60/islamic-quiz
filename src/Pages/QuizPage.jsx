@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Option from "../components/Option";
 
 const QuizPage = ({ questions }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const userName = location.state?.userName || "Player";
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -120,12 +121,12 @@ const QuizPage = ({ questions }) => {
         </header>
 
         <div className="flex flex-col items-center justify-center h-full pt-20 pb-4 mt-10">
-          <div className="w-full max-w-2xl space-y-4">
+          <div className="w-full max-w-2xl space-y-4 flex flex-col items-center">
             {/* Progress Bar */}
             <div className="w-full">
               <div className="bg-gray-200 border-2 border-black rounded-xl h-6 overflow-hidden">
                 <div
-                  className="bg-[#9454fe] h-full border-r-2 border-black transition-all duration-300"
+                  className="bg-yellow-400 h-full border-r-2 border-black transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
@@ -160,6 +161,13 @@ const QuizPage = ({ questions }) => {
               ))}
             </div>
 
+            <button
+              onClick={() => navigate("/")}
+              className="bg-yellow-300 border-3 border-black rounded-full inline-flex shadow-[4px_4px_0_black] transition-transform duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+            >
+              <img src="home.svg" alt="home" className="h-12 w-12" />
+            </button>
+
             {isCorrect && (
               <div className="text-center text-sm sm:text-base font-semibold text-gray-800 max-w-md mx-auto">
                 Reference: {currentQuestion.reference}
@@ -185,7 +193,13 @@ const QuizPage = ({ questions }) => {
             <p className="text-center text-lg sm:text-xl mb-4 text-black">
               Your Final Score: {finalScore}
             </p>
-            <div className="modal-action flex justify-center">
+            <div className="modal-action flex justify-center items-center gap-4">
+              <button
+                onClick={() => navigate("/")}
+                className="bg-yellow-300 cursor-pointer border-3 border-black rounded-full inline-flex shadow-[4px_4px_0_black] transition-transform duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              >
+                <img src="home.svg" alt="home" className="h-9 w-9" />
+              </button>
               <button
                 onClick={() => window.location.reload()}
                 className="bg-yellow-300 h-10 w-32 border-2 cursor-pointer text-black font-semibold border-black rounded-xl shadow-[4px_4px_0_black] transition-transform duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"

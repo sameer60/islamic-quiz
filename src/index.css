@@ -4,15 +4,4 @@
 
 * {
     font-family: 'Patrick Hand', sans-serif;
-    cursor: url('/cursor.png'), auto;
-}
-
-/* Ensure interactive elements have appropriate cursors for usability */
-button, input, select, textarea, a, [role="button"] {
-    cursor: url('/cursor.png'), pointer;
-}
-
-/* Fallback for elements that should have default cursor behavior */
-input[type="text"], textarea {
-    cursor: url('/cursor.png'), text;
 }
