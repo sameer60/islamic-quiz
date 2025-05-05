@@ -103,13 +103,13 @@ const QuizPage = ({ questions }) => {
         />
 
         <header className="fixed top-0 left-0 right-0 h-16 sm:h-20 flex items-center justify-between px-4 sm:px-6 bg-white/80 backdrop-blur-sm z-30">
-          <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-black truncate max-w-[50%] text-wrap">
+          <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-black truncate max-w-[50%] text-wrap selection:bg-green-300">
             Assalamualaikum,{" "}
-            <span className="bg-[#8cecdc] border-3 border-black px-2 rounded-full inline-block">
+            <span className="bg-[#8cecdc] border-3 border-black px-2 rounded-full inline-block selection:bg-white">
               {userName}!
             </span>
           </div>
-          <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-black flex items-center justify-center bg-[#00b4fe] border-3 border-black rounded-full px-2">
+          <div className="text-lg sm:text-xl lg:text-2xl font-extrabold selection:bg-green-300 text-black flex items-center justify-center bg-[#00b4fe] border-3 border-black rounded-full px-2">
             <img
               src="score.svg"
               alt="score"
@@ -130,12 +130,12 @@ const QuizPage = ({ questions }) => {
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              <p className="text-center mt-2 text-black font-bold text-sm sm:text-base">
+              <p className="text-center mt-2 text-black font-bold text-sm sm:text-base selection:bg-green-300">
                 Question {currentQuestionIndex + 1} of {questions.length}
               </p>
             </div>
 
-            <h1 className="font-extrabold text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center">
+            <h1 className="font-extrabold text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center selection:bg-green-300">
               {currentQuestion.question}
             </h1>
 
@@ -155,7 +155,7 @@ const QuizPage = ({ questions }) => {
                           ? "bg-red-400"
                           : "bg-gray-200"
                         : "bg-white"
-                    } transition-colors duration-300
+                    } transition-colors duration-300 selection:bg-green-300
                   `}
                 />
               ))}
@@ -163,7 +163,7 @@ const QuizPage = ({ questions }) => {
 
             <button
               onClick={() => navigate("/")}
-              className="bg-yellow-300 border-3 border-black rounded-full inline-flex shadow-[4px_4px_0_black] transition-transform duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              className="bg-yellow-300 border-3 border-black cursor-pointer rounded-full inline-flex shadow-[4px_4px_0_black] transition-transform duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             >
               <img src="home.svg" alt="home" className="h-12 w-12" />
             </button>

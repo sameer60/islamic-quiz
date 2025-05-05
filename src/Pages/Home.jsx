@@ -101,6 +101,11 @@ const Home = () => {
             type="text"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleStart();
+              }
+            }}
             placeholder="Your Name"
             className="input input-bordered w-full text-black font-bold text-xl bg-white border-2 border-black rounded-xl mb-2"
           />
